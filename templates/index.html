@@ -16,44 +16,68 @@
                     <p class="mb-0">Estimate monthly inflation rate using macroeconomic data</p>
                 </div>
                 <div class="card-body">
+
+                    <!-- Context Note -->
+                    <div class="alert alert-warning">
+                        <strong>Note:</strong> Please input the most recent monthly values (e.g., April 2024) for each indicator below. The model will use them to predict the next month's inflation rate.
+                    </div>
+
                     <form action="/predict" method="post">
                         <div class="row">
-                            <!-- Input fields -->
+
+                            <!-- Input fields with context -->
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Crude Oil Price</label>
+                                <label class="form-label">Crude Oil Price (USD per barrel)</label>
                                 <input type="number" step="any" class="form-control" name="Crude_Oil_Price" required>
+                                <small class="text-muted">Monthly average crude oil price.</small>
                             </div>
+
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Production</label>
+                                <label class="form-label">Crude Oil Production (in millions of barrels)</label>
                                 <input type="number" step="any" class="form-control" name="Production" required>
+                                <small class="text-muted">Total oil produced by Nigeria in the month.</small>
                             </div>
+
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Crude Oil Export</label>
+                                <label class="form-label">Crude Oil Export (in millions of barrels)</label>
                                 <input type="number" step="any" class="form-control" name="Crude_Oil_Export" required>
+                                <small class="text-muted">Volume of crude oil exported.</small>
                             </div>
+
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">CPI - Food</label>
                                 <input type="number" step="any" class="form-control" name="CPI_Food" required>
+                                <small class="text-muted">Consumer Price Index for food items.</small>
                             </div>
+
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">CPI - Energy</label>
                                 <input type="number" step="any" class="form-control" name="CPI_Energy" required>
+                                <small class="text-muted">CPI for electricity, gas, fuel, etc.</small>
                             </div>
+
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">CPI - Health</label>
                                 <input type="number" step="any" class="form-control" name="CPI_Health" required>
+                                <small class="text-muted">CPI for health-related goods and services.</small>
                             </div>
+
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">CPI - Transport</label>
                                 <input type="number" step="any" class="form-control" name="CPI_Transport" required>
+                                <small class="text-muted">CPI for public and private transportation.</small>
                             </div>
+
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">CPI - Communication</label>
                                 <input type="number" step="any" class="form-control" name="CPI_Communication" required>
+                                <small class="text-muted">CPI for telecom and communication services.</small>
                             </div>
+
                             <div class="col-md-6 mb-4">
                                 <label class="form-label">CPI - Education</label>
                                 <input type="number" step="any" class="form-control" name="CPI_Education" required>
+                                <small class="text-muted">CPI for education services and materials.</small>
                             </div>
                         </div>
 
@@ -74,6 +98,15 @@
                             {{ chart | safe }}
                         </div>
                     {% endif %}
+
+                    <!-- About Section -->
+                    <div class="mt-5">
+                        <h5>About This Tool</h5>
+                        <p class="text-muted">
+                            This tool uses a machine learning model trained on historical economic data to predict monthly inflation rates in Nigeria.
+                            It combines crude oil statistics with CPI data to estimate future inflation trends. For educational and forecasting purposes only.
+                        </p>
+                    </div>
 
                 </div> <!-- End card-body -->
             </div> <!-- End card -->
